@@ -34,6 +34,23 @@ window.matchMedia('(min-width: 801px)').addEventListener('change', (event) => {
   if (event.matches) closeMenu();
 });
 
+// Project index: scroll within the current document without changing its URL.
+// Keep real fragment hrefs as a fallback when JavaScript is unavailable.
+document.querySelectorAll('.project-aside a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    // Preserve the browser's usual behavior for modified clicks.
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const section = document.getElementById(link.getAttribute('href').slice(1));
+    if (!section) return;
+    event.preventDefault();
+    // Move keyboard focus along with the viewport, without adding a Tab stop.
+    section.setAttribute('tabindex', '-1');
+    section.focus({ preventScroll: true });
+    // CSS supplies smooth scrolling, sticky-header spacing, and reduced-motion support.
+    section.scrollIntoView({ behavior: 'auto', block: 'start' });
+  });
+});
+
 // Native dialog provides keyboard focus containment and Escape handling.
 // Project data and 3-image galleries are directly editable in blender.html.
 let lastOpener = null;
