@@ -72,7 +72,7 @@ Dialogs support keyboard navigation, Escape, close buttons, backdrop clicks, and
 
 Overwrite `assets/resume/Gavin_Goodhall_Resume.pdf` with your actual resume, using that exact spelling. The included one-page PDF is conspicuously marked **PLACEHOLDER — NOT A RESUME**, so the links and download work immediately without implying a finished resume exists.
 
-Once replaced, remove the placeholder note from `about.html`. If you rename the PDF, replace its path in every HTML file. The About button uses `download`; navigation links open the PDF normally.
+Once replaced, remove the placeholder note from `about.html`. If you rename the PDF, replace its path in every HTML file. All resume links use `target="_blank"` and `rel="noopener noreferrer"` to open the PDF in a new tab. The About button also opens the PDF instead of forcing a download; visitors can download it from their browser’s PDF viewer.
 
 ## 7. Update Email, LinkedIn, and GitHub
 
