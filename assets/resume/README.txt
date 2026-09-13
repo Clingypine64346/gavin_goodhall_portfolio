@@ -1,0 +1,1 @@
+Replace Gavin_Goodhall_Resume.pdf with your real resume using exactly the same filename. The supplied PDF is clearly marked as a placeholder. Remove the placeholder note on about.html after replacement.

@@ -1,0 +1,1 @@
+All SVG images are abstract labeled placeholders, not actual project images. Replace them with your own JPG, PNG, WebP, or SVG files and update HTML src attributes and alt text. See the main README for details.

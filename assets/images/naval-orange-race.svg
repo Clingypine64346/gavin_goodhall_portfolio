@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Great Naval Orange Race — placeholder</title><desc id="desc">Abstract technical grid reserving space for a real project image.</desc>
+<defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#344047" stroke-width="1"/></pattern><radialGradient id="light"><stop stop-color="#28373e"/><stop offset="1" stop-color="#151d22"/></radialGradient></defs>
+<path fill="url(#light)" d="M0 0h1200v800H0z"/><path fill="url(#grid)" d="M0 0h1200v800H0z"/>
+<g fill="none" stroke="#f2a365" stroke-width="2" opacity=".6"><path d="M100 170v-50h50M1050 120h50v50M1100 630v50h-50M150 680h-50v-50"/><path d="M565 330h70M600 295v70"/></g>
+<text x="600" y="420" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="#e8edf0" letter-spacing="4">PROJECT IMAGE</text>
+<text x="600" y="468" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#a5b4bc">Placeholder — replace with your work</text>
+<text x="100" y="735" font-family="Arial,sans-serif" font-size="18" fill="#f2a365">Great Naval Orange Race</text></svg>
