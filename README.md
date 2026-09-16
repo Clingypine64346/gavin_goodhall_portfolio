@@ -112,3 +112,9 @@ Each page includes a title, description, theme color, favicon, and Open Graph ti
 - Try a phone-sized window, keyboard Tab navigation, the mobile menu, and gallery closing with Escape.
 
 This folder is the complete deployable website. You do not need the separate development or validation files used to create it.
+
+## Main engineering image sliders
+
+Each engineering detail page, including `projects/project-template.html`, has a three-image slider at the top. In that page's HTML, find `MAIN PROJECT SLIDER` and change the three image `src` paths and `alt` descriptions. The original cover is image 1. Images 2 and 3 have their own placeholder files named `<project-filename>-view-2.svg` and `<project-filename>-view-3.svg` in `assets/images/`. Replace the files, or change the paths to your JPG/PNG/WebP images. Keep the three slide containers in order.
+
+The arrows loop smoothly in either direction. Keyboard users can Tab to either arrow and use Enter, Space, or the left/right arrow keys. There is no automatic rotation. Reduced-motion preferences disable the transition. Without JavaScript, the images remain horizontally scrollable. The separate Project Gallery farther down each page is unchanged.

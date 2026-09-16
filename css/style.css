@@ -251,3 +251,15 @@ figcaption { color: var(--muted); font-size: .85rem; padding-block: .65rem; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Main engineering project images. Without JS, the images scroll horizontally. */
+.project-carousel { border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.project-carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
+.project-carousel.is-ready .project-carousel-viewport { overflow: hidden; }
+.project-carousel-track { display: flex; height: clamp(220px, 50vw, 600px); }
+.project-carousel-slide { flex: 0 0 100%; min-width: 0; height: 100%; scroll-snap-align: start; }
+.project-carousel-slide img { width: 100%; height: 100%; object-fit: contain; }
+.project-carousel-controls:not([hidden]) { display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: .8rem 1rem; border-top: 1px solid var(--border-color); }
+.carousel-arrow { display: inline-grid; place-items: center; width: 48px; height: 44px; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--card-color); color: var(--text); font-size: 1.4rem; transition: border-color .18s ease, color .18s ease; }
+.carousel-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-status { min-width: 7rem; text-align: center; color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; }

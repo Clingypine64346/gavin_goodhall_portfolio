@@ -86,3 +86,71 @@ document.querySelectorAll('[data-placeholder]').forEach((link) => {
     openDialog(document.querySelector('#placeholder-dialog'), link);
   });
 });
+
+// Three-image project sliders: manual navigation, seamless loops, no autoplay.
+document.querySelectorAll('.project-carousel').forEach((carousel) => {
+  const track = carousel.querySelector('.project-carousel-track');
+  const slides = Array.from(track.children);
+  const count = slides.length;
+  if (count < 2) return;
+  const controls = carousel.querySelector('.project-carousel-controls');
+  const status = carousel.querySelector('.carousel-status');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Bookend copies let last → first and first → last move one slide smoothly.
+  const firstCopy = slides[0].cloneNode(true);
+  const lastCopy = slides[count - 1].cloneNode(true);
+  [firstCopy, lastCopy].forEach((copy) => {
+    copy.setAttribute('aria-hidden', 'true');
+    copy.querySelector('img').loading = 'eager';
+  });
+  track.prepend(lastCopy);
+  track.append(firstCopy);
+  let position = 1;
+  let moving = false;
+  let fallbackTimer;
+  const render = () => { track.style.transform = `translateX(${-100 * position}%)`; };
+  const announce = () => {
+    const current = (position - 1 + count) % count;
+    slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== current)));
+    status.textContent = `Image ${current + 1} of ${count}`;
+  };
+  const finish = () => {
+    if (!moving) return;
+    clearTimeout(fallbackTimer);
+    // Jump from the identical copy to its original with no visible movement.
+    track.style.transition = 'none';
+    if (position === 0) position = count;
+    if (position === count + 1) position = 1;
+    render();
+    moving = false;
+  };
+  const move = (direction) => {
+    if (moving) return;
+    moving = true;
+    // Commit a previous loop reset before starting another transition.
+    void track.offsetWidth;
+    track.style.transition = reducedMotion.matches ? 'none' : 'transform 420ms ease-in-out';
+    position += direction;
+    render();
+    announce();
+    if (reducedMotion.matches) finish();
+    else fallbackTimer = window.setTimeout(finish, 500);
+  };
+  track.addEventListener('transitionend', (event) => {
+    if (event.target === track && event.propertyName === 'transform') finish();
+  });
+  controls.querySelectorAll('[data-direction]').forEach((button) => {
+    button.addEventListener('click', () => move(Number(button.dataset.direction)));
+  });
+  controls.addEventListener('keydown', (event) => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      move(event.key === 'ArrowLeft' ? -1 : 1);
+    }
+  });
+  render();
+  announce();
+  carousel.classList.add('is-ready');
+  controls.hidden = false;
+});
