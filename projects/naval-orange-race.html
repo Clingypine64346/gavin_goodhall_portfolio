@@ -40,13 +40,9 @@
           Engineering
         </p>
         <h1>Great Naval Orange Race</h1>
-        <p class="content-note">
-          Project documentation in progress · Placeholder images and sections
-        </p>
       </section>
       <div class="container">
-        <!-- MAIN PROJECT SLIDER: replace the three image src/alt values below.
-     Keep all three slides; the shared JavaScript adds seamless loop copies. -->
+        <!-- MAIN PROJECT SLIDER: replace the three image src/alt values below. Keep all three slides; the shared JavaScript adds seamless loop copies. -->
 
         <section class="project-carousel" role="region" aria-roledescription="carousel" aria-label="Main project images">
           <div class="project-carousel-viewport">
@@ -171,25 +167,36 @@
             <h2>Project Gallery</h2>
           </div>
         </div>
-        <div class="detail-gallery">
+        <!-- Use gallery-fit-cover for photos; gallery-fit-contain keeps the whole image visible. -->
+        <div class="detail-gallery engineering-gallery">
           <figure>
-            <img src="../assets/images/GNOR/boat_in_progress.png" alt="Image showing the foam hull during construction" width="1200" height="800" loading="lazy">
+            <a class="engineering-gallery-frame gallery-fit-cover" href="../assets/images/GNOR/boat_in_progress.png" data-gallery-image target="_blank" rel="noopener noreferrer" aria-label="View larger: Image showing the foam hull during construction">
+              <img src="../assets/images/GNOR/boat_in_progress.png" alt="Image showing the foam hull during construction" width="1200" height="800" loading="lazy">
+            </a>
             <figcaption>Foam hull during construction</figcaption>
           </figure>
           <figure>
-            <img src="../assets/images/GNOR/dead_design.png" alt="Image showing the original hull design" width="1200" height="800" loading="lazy">
+            <a class="engineering-gallery-frame gallery-fit-contain" href="../assets/images/GNOR/dead_design.png" data-gallery-image target="_blank" rel="noopener noreferrer" aria-label="View larger: Image showing the original hull design">
+              <img src="../assets/images/GNOR/dead_design.png" alt="Image showing the original hull design" width="1200" height="800" loading="lazy">
+            </a>
             <figcaption>Original trimaran concept modeled in Blender before a rule change required a redesign</span></figcaption>
           </figure>
           <figure>
-            <img src="../assets/images/GNOR/proof_of_render.png" alt="Image showing proof of build in Blender" width="1200" height="800" loading="lazy">
+            <a class="engineering-gallery-frame gallery-fit-contain" href="../assets/images/GNOR/proof_of_render.png" data-gallery-image target="_blank" rel="noopener noreferrer" aria-label="View larger: Image showing proof of build in Blender">
+              <img src="../assets/images/GNOR/proof_of_render.png" alt="Image showing proof of build in Blender" width="1200" height="800" loading="lazy">
+            </a>
             <figcaption>Completed boat model in Blender prior to final rendering</figcaption>
           </figure>
           <figure>
-            <img src="../assets/images/GNOR/diagram.png" alt="Image showing the layout of the boat components" width="1200" height="800" loading="lazy">
+            <a class="engineering-gallery-frame gallery-fit-contain" href="../assets/images/GNOR/diagram.png" data-gallery-image target="_blank" rel="noopener noreferrer" aria-label="View larger: Image showing the layout of the boat components">
+              <img src="../assets/images/GNOR/diagram.png" alt="Image showing the layout of the boat components" width="1200" height="800" loading="lazy">
+            </a>
             <figcaption>Boat component layout</figcaption>
           </figure>
           <figure>
-            <img src="../assets/images/GNOR/wiring_design.png" alt="Image showing the wiring diagram for the electronic parts" width="1200" height="800" loading="lazy">
+            <a class="engineering-gallery-frame gallery-fit-contain" href="../assets/images/GNOR/wiring_design.png" data-gallery-image target="_blank" rel="noopener noreferrer" aria-label="View larger: Image showing the wiring diagram for the electronic parts">
+              <img src="../assets/images/GNOR/wiring_design.png" alt="Image showing the wiring diagram for the electronic parts" width="1200" height="800" loading="lazy">
+            </a>
             <figcaption>Electrical wiring diagram</figcaption>
           </figure>
         </div>
@@ -232,6 +239,18 @@
       <p id="notice-copy">
         This is a placeholder link. Gavin’s contact information has not been added yet.
       </p>
+    </dialog>
+  
+    <!-- Full-image viewer; the shared script copies the selected image and caption. -->
+    <dialog id="engineering-lightbox" class="engineering-lightbox" aria-labelledby="engineering-lightbox-title" aria-describedby="engineering-lightbox-caption">
+      <div class="dialog-header">
+        <h2 id="engineering-lightbox-title">Project image</h2>
+        <button class="dialog-close" type="button" data-close aria-label="Close enlarged project image">Close ×</button>
+      </div>
+      <figure>
+        <img class="engineering-lightbox-image" alt="">
+        <figcaption id="engineering-lightbox-caption"></figcaption>
+      </figure>
     </dialog>
   </body>
 </html>

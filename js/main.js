@@ -154,3 +154,23 @@ document.querySelectorAll('.project-carousel').forEach((carousel) => {
   carousel.classList.add('is-ready');
   controls.hidden = false;
 });
+
+// Engineering gallery lightbox. Reuse the existing native-dialog close/Escape
+// handling and focus restoration. The original image file is always displayed.
+document.querySelectorAll('[data-gallery-image]').forEach((link) => {
+  const dialog = document.getElementById('engineering-lightbox');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  link.setAttribute('aria-haspopup', 'dialog');
+  link.addEventListener('click', (event) => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const original = link.querySelector('img');
+    const enlarged = dialog.querySelector('.engineering-lightbox-image');
+    enlarged.src = link.href;
+    enlarged.alt = original.alt;
+    const caption = link.closest('figure').querySelector('figcaption');
+    const enlargedCaption = dialog.querySelector('figcaption');
+    enlargedCaption.replaceChildren(...Array.from(caption.childNodes, (node) => node.cloneNode(true)));
+    openDialog(dialog, link);
+  });
+});
