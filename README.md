@@ -118,3 +118,13 @@ This folder is the complete deployable website. You do not need the separate dev
 Each engineering detail page, including `projects/project-template.html`, has a three-image slider at the top. In that page's HTML, find `MAIN PROJECT SLIDER` and change the three image `src` paths and `alt` descriptions. The original cover is image 1. Images 2 and 3 have their own placeholder files named `<project-filename>-view-2.svg` and `<project-filename>-view-3.svg` in `assets/images/`. Replace the files, or change the paths to your JPG/PNG/WebP images. Keep the three slide containers in order.
 
 The arrows loop smoothly in either direction. Keyboard users can Tab to either arrow and use Enter, Space, or the left/right arrow keys. There is no automatic rotation. Reduced-motion preferences disable the transition. Without JavaScript, the images remain horizontally scrollable. The separate Project Gallery farther down each page is unchanged.
+
+## Interactive projectile launcher
+
+The browser recreation is below Tools Used in `projects/projectile-simulator.html`. Its isolated logic is in `js/projectile-app.js`, with scoped `.launcher-` styles at the end of `css/style.css`. It uses the equations from `Projectile_Launcher.m` and the controls, defaults, gravity values, and 100-point trajectory from `project_launcher_app.mlapp`. No MATLAB installation or server is required.
+
+Speed: 10–100 m/s (default 50); angle: 0–90 degrees (default 45); starting height: 0–100 m (default 0); gravity: the original ten presets (default Earth, 9.81 m/s²). Starting height uses MATLAB’s [default slider limits](https://www.mathworks.com/help/matlab/ref/matlab.ui.control.slider.html), since the app does not override them.
+
+Maximum height deliberately uses the highest of 100 samples, as in the original, rather than the exact analytical apex. Flight animation is about one second, regardless of physical flight time, matching the original illustrative playback. Reduced-motion preferences skip playback. Changing inputs clears old results; Reset restores the original defaults. Assumptions: no air resistance, constant gravity, flat ground at y = 0.
+
+Only this project page loads the new script. Edit the controls in its `simulator` section and keep input ranges consistent with validation in `calculateProjectile`. The MATLAB source files were read for translation and left unchanged.

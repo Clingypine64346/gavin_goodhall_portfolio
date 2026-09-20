@@ -16,6 +16,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101417'/%3E%3Ctext x='8' y='43' font-family='Arial' font-size='30' font-weight='bold' fill='%23f2a365'%3EGG%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/main.js"></script>
+    <script defer src="../js/projectile-app.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -83,6 +84,7 @@
             <a href="#section-5">Final Result</a>
             <a href="#section-6">What I Learned</a>
             <a href="#tools">Tools Used</a>
+            <a href="#simulator">Interactive Simulator</a>
             <a href="#gallery">Project Gallery</a>
           </nav>
         </aside>
@@ -173,6 +175,69 @@
               <li>MATLAB App Designer</li>
               <li>Numerical Methods</li>
             </ul>
+          </section>
+
+          <!-- Interactive browser version of the supplied MATLAB app. -->
+          <section id="simulator">
+            <p class="eyebrow">Try the application</p>
+            <h2>Projectile Launcher Simulator</h2>
+            <p>Adjust the launch conditions, choose a gravitational environment, and launch the projectile.</p>
+
+            <div id="projectile-app" class="launcher-app">
+              <form class="launcher-controls" aria-label="Projectile launch conditions">
+                <div class="launcher-field">
+                  <label for="launch-speed">Launch speed <span><output for="launch-speed" data-value="speed">50</output> m/s</span></label>
+                  <input id="launch-speed" name="speed" type="range" min="10" max="100" step="1" value="50">
+                  <div class="launcher-limits"><span>10 m/s</span><span>100 m/s</span></div>
+                </div>
+                <div class="launcher-field">
+                  <label for="launch-angle">Launch angle <span><output for="launch-angle" data-value="angle">45</output>°</span></label>
+                  <input id="launch-angle" name="angle" type="range" min="0" max="90" step="1" value="45">
+                  <div class="launcher-limits"><span>0°</span><span>90°</span></div>
+                </div>
+                <div class="launcher-field">
+                  <label for="launch-height">Starting height <span><output for="launch-height" data-value="height">0</output> m</span></label>
+                  <input id="launch-height" name="height" type="range" min="0" max="100" step="1" value="0">
+                  <div class="launcher-limits"><span>0 m</span><span>100 m</span></div>
+                </div>
+                <div class="launcher-field">
+                  <label for="launch-gravity">Gravity <span><output for="launch-gravity" data-value="gravity">9.81</output> m/s²</span></label>
+                  <select id="launch-gravity" name="gravity">
+                    <option value="3.70">Mercury</option>
+                    <option value="8.87">Venus</option>
+                    <option value="9.81" selected>Earth</option>
+                    <option value="1.62">Moon</option>
+                    <option value="3.71">Mars</option>
+                    <option value="24.79">Jupiter</option>
+                    <option value="10.44">Saturn</option>
+                    <option value="8.69">Uranus</option>
+                    <option value="11.15">Neptune</option>
+                    <option value="0.62">Pluto</option>
+                  </select>
+                </div>
+                <div class="launcher-actions">
+                  <button class="button primary" type="submit">Launch <span aria-hidden="true">↗</span></button>
+                  <button class="button" type="reset">Reset</button>
+                </div>
+              </form>
+
+              <div class="launcher-plot">
+                <svg role="img" aria-labelledby="trajectory-title trajectory-description" viewBox="0 0 650 350">
+                  <title id="trajectory-title">Projectile trajectory</title>
+                  <desc id="trajectory-description">Press Launch to plot horizontal and vertical position in meters.</desc>
+                </svg>
+              </div>
+              <p class="launcher-legend">× Start &amp; impact <span>× Maximum sampled height</span></p>
+              <dl class="launcher-results" aria-label="Simulation results">
+                <div><dt>Flight time</dt><dd data-result="flightTime" data-unit="s">—</dd></div>
+                <div><dt>Max height</dt><dd data-result="maxHeight" data-unit="m">—</dd></div>
+                <div><dt>Range</dt><dd data-result="range" data-unit="m">—</dd></div>
+                <div><dt>Impact speed</dt><dd data-result="impactSpeed" data-unit="m/s">—</dd></div>
+              </dl>
+              <p class="launcher-status" data-launch-status role="status" aria-live="polite">Ready. Adjust the conditions and press Launch.</p>
+              <noscript><p>Enable JavaScript to use the interactive simulation.</p></noscript>
+            </div>
+            <p class="content-note">Browser recreation of my MATLAB app. Assumes constant gravity, no air resistance, and impact at ground level. Maximum height follows the original app’s 100 trajectory samples. Animation timing is illustrative.</p>
           </section>
         </div>
       </div>

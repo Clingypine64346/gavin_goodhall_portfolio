@@ -1425,3 +1425,71 @@ figcaption {
   }
 
 }
+
+/* Embedded MATLAB-to-JavaScript launcher; styles are scoped to this app. */
+.launcher-app {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--surface);
+  min-width: 0;
+}
+.launcher-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.launcher-field { min-width: 0; }
+.launcher-field label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .25rem .75rem;
+  font-size: .9rem;
+}
+.launcher-field label > span { color: var(--accent); font-variant-numeric: tabular-nums; }
+.launcher-field input[type="range"] {
+  width: 100%;
+  margin: .45rem 0 0;
+  min-height: 32px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.launcher-field select {
+  width: 100%;
+  margin-top: .6rem;
+  padding: .65rem;
+  min-height: 44px;
+  background: var(--card-color);
+  color: var(--text);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font: inherit;
+}
+.launcher-field :is(input, select):focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.launcher-limits { display: flex; justify-content: space-between; color: var(--muted); font-size: .75rem; }
+.launcher-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .75rem; }
+.launcher-plot { margin-top: 1.5rem; background: var(--background); border-radius: var(--radius); }
+.launcher-plot svg { display: block; width: 100%; height: 350px; overflow: visible; }
+.launcher-gridline { stroke: var(--border-color); stroke-width: 1; }
+.launcher-tick { fill: var(--muted); font-size: 12px; }
+.launcher-axis-label { fill: var(--text); font-size: 13px; }
+.launcher-path { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+.launcher-projectile { fill: var(--accent); }
+.launcher-marker { stroke: var(--text); stroke-width: 2; }
+.launcher-peak { stroke: var(--accent); }
+.launcher-legend { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: .75rem; font-size: .8rem; }
+.launcher-legend span { color: var(--accent); }
+.launcher-results { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 1.5rem 0 0; }
+.launcher-results > div { padding: .75rem; background: var(--card-color); border: 1px solid var(--border-color); border-radius: var(--radius); }
+.launcher-results dt { color: var(--muted); font-size: .8rem; }
+.launcher-results dd { margin: .35rem 0 0; font-weight: 600; font-size: 1rem; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.launcher-status { min-height: 3em; margin-top: 1rem; font-size: .85rem; }
+@media (max-width: 1100px) {
+  .launcher-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .launcher-app { padding: .85rem; }
+  .launcher-controls { grid-template-columns: minmax(0, 1fr); }
+}
