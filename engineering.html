@@ -89,7 +89,7 @@
               <ul class="tags" aria-label="Tools and technologies">
                 <li>MATLAB</li>
                 <li>MATLAB App Designer</li>
-                <li>Numerical Methods</li>
+                <li>MATLAB Plotting / UI Controls</li>
               </ul>
               <a class="text-link" href="projects/projectile-simulator.html">View Project<span class="sr-only">: Projectile Motion Simulator</span><span aria-hidden="true">↗</span></a>
             </div>
@@ -134,25 +134,35 @@
               <a class="text-link" href="projects/cad-mechanical-design.html">View Project<span class="sr-only">: CAD / Mechanical Design Projects</span><span aria-hidden="true">↗</span></a>
             </div>
           </article>
-          <!-- PROJECT CARD: duplicate this article to add work. -->
 
-          <article class="project-card">
-            <a class="image-link" href="projects/3d-printing.html" tabindex="-1" aria-hidden="true"><img src="assets/images/3d-printing.svg" alt="Placeholder for 3D Printing Projects project image" width="1200" height="800" loading="lazy"></a>
-            <div class="card-body">
-              <div class="card-meta">
-                <span>Fabrication</span>
-                <span>05</span>
+          <!-- HIDDEN PROJECT CARD TEMPLATE (not displayed on the website)
+               To add a project:
+               1. Copy only the <article> through </article> below.
+               2. Paste it above this comment, inside the engineering-grid div.
+               3. Update the title, category, number, summary, tools, image/alt text,
+                  BOTH project links, and the screen-reader project name.
+               Do not copy the surrounding <template> tags; they keep this example hidden.
+          -->
+          <template id="engineering-card-template">
+            <article class="project-card">
+              <a class="image-link" href="projects/3d-printing.html" tabindex="-1" aria-hidden="true"><img src="assets/images/3d-printing.svg" alt="Placeholder for project image" width="1200" height="800" loading="lazy"></a>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span>Placeholde</span>
+                  <span>##</span>
+                </div>
+                <h3>Placeholder</h3>
+                <p>
+                  Placeholder: short overview.
+                </p>
+                <ul class="tags" aria-label="Tools and technologies">
+                  <li>Tools: placeholder</li>
+                </ul>
+                <a class="text-link" href="projects/3d-printing.html">View Project<span class="sr-only">: placeholder</span><span aria-hidden="true">↗</span></a>
               </div>
-              <h3>3D Printing Projects</h3>
-              <p>
-                Placeholder: describe your printed parts, their purpose, and your design process.
-              </p>
-              <ul class="tags" aria-label="Tools and technologies">
-                <li>Tools: placeholder</li>
-              </ul>
-              <a class="text-link" href="projects/3d-printing.html">View Project<span class="sr-only">: 3D Printing Projects</span><span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
+            </article>
+          </template>
+
         </div>
       </section>
     </main>
