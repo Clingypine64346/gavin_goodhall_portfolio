@@ -1493,3 +1493,16 @@ figcaption {
   .launcher-app { padding: .85rem; }
   .launcher-controls { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Explicit reset styling prevents the browser's default white button background. */
+.launcher-actions .button[type="reset"] {
+  appearance: none;
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.launcher-actions .button[type="reset"]:hover {
+  background: var(--card-color);
+  border-color: var(--accent);
+}
